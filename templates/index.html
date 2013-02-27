@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for article in articles_page.object_list %}
+    <article>
+        <h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
+        <blockquote>
+            <p>{{ article.summary }}</p>
+            <cite>{{ article.locale_date }}</cite>
+        </blockquote>
+    </article>
+{% endfor %}
+
+{% endblock content %}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
+    <!-- Meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- CSS stylesheets -->
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/kube.css">
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/master.css">
+
+</head>
+<body>
+    <!-- top header and menu -->
+    <header id="header" class="row">
+        <h1 class="fifth">Miniwark</h1>
+        <nav class="fourfifth">
+            <ul>
+                <li><a href="/">Acceuil</a></li>
+                {% if DISPLAY_PAGES_ON_MENU %}
+                {% for page in pages %}
+                <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
+                {% endfor %}
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <!-- main section -->
+    <section class="row">
+        <!-- Tags, links and Co -->
+        <aside class="fifth">
+            <div class="asidebox">
+                <b>Categories</b>
+                <nav>
+                    <ul>
+                        {% for category, null in categories %}
+                        <li><a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </nav>
+            </div>
+            {% if LINKS %}
+            <div class="asidebox">
+                <b>Liens</b>
+                <ul>
+                    {% for name, link in LINKS %}
+                    <li><a href="{{ link }}">{{ name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+<!--
+            {% if SOCIAL %}
+            <div class="asidebox">
+                <ul>
+                    {% for name, link in SOCIAL %}
+                    <li><a href="{{ link }}">{{ name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+-->
+        </aside>
+        <!-- main content -->
+        <article class="fourfifth">
+            {% block content %}
+            {% endblock %}
+        </article>
+    </section>
+
+    <footer>
+    </footer>
+
+</body>
+</html>
