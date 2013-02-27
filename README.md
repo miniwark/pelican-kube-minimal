@@ -1,0 +1,2 @@
+pelican-kube-minimal
+====================
