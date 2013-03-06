@@ -8,7 +8,10 @@
 {% block content %}
     <header>
         <h1>{{ article.title }}</h1>
-        <cite>{{ article.locale_date }}</cite>
+        <blockquote>
+            <p>{{ article.summary }}</p>
+            <cite>{{ article.locale_date }}</cite>
+        </blockquote>
     </header>
     {{ article.content }}
 {% endblock %}
