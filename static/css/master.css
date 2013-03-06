@@ -37,6 +37,13 @@ table tbody tr:nth-child(odd) td {
   background-color: #f8f8f8;
 }*/
 
+figure {
+    text-align: center;
+    padding-bottom: 20px;
+}
+figcaption {
+    font-size: 1em;
+}
 
 /* Links --------------------------------------------------------------------*/
 a:link {text-decoration: none;}
